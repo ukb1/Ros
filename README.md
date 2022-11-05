@@ -1,2 +1,2 @@
-# Genel Olarak ROS2 başlangıç eğitimi
+# Genel Olarak ROS2 Başlangıç Denemeleri
 
