@@ -9,7 +9,10 @@ class clientNode: public rclcpp::Node
         {
             thread1 = std::thread(std::bind(&clientNode::callBackService,this, 12,20)); //Parametre olarak burda direk değer vermek istiyoruz yer tutmak yerine
             thread2 = std::thread(std::bind(&clientNode::callBackService,this, 5,45)); //Parametre olarak burda direk değer vermek istiyoruz yer tutmak yerine
-
+            // Ya da 
+            _thread.push_back(std::thread(std::bind(&clientNode::callBackService,this, 6,45)));
+            _thread.push_back(std::thread(std::bind(&clientNode::callBackService,this, 9,45)));
+            _thread.push_back(std::thread(std::bind(&clientNode::callBackService,this, 456,45)));
         }
 
         void callBackService(int a, int b)
@@ -42,6 +45,7 @@ class clientNode: public rclcpp::Node
     private:
         std::thread thread1 ;
         std::thread thread2 ;
+        std::vector<std::thread> _thread ;
 
 
 };
