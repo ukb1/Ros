@@ -18,7 +18,7 @@ class ServerNode: public rclcpp::Node
                             const example_interfaces::srv::AddTwoInts::Response::SharedPtr _response)
                             {
                                 _response->sum = _request->a + _request->b;
-                                RCLCPP_INFO(this->get_logger(),"%d + %d = %d",_request->a,_request->b,_response->sum);
+                                RCLCPP_INFO(this->get_logger(),"%ld + %ld = %ld",_request->a,_request->b,_response->sum);
                             }
         rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr _server;
 
@@ -26,7 +26,12 @@ class ServerNode: public rclcpp::Node
 };
 
 
-int main()
+int main(int argc, char** argv)
 {
+    rclcpp::init(argc,argv);
+    auto node = std::make_shared<ServerNode>();
+
+    rclcpp::spin(node);
+    rclcpp::shutdown();
 
 }
