@@ -18,6 +18,7 @@ class myNode: public rclcpp::Node
         {
             _counter++;
             auto msg = example_interfaces::msg::String();
+            RCLCPP_INFO(this->get_logger(),"%d) Hi this is ",_counter);
             msg.data = std::to_string(_counter) + std::string(" Hi, this is ") + node_name;
             _publisher->publish(msg);
         }
