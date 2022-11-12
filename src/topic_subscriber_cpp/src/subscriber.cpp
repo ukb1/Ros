@@ -8,7 +8,6 @@ class myNode: public rclcpp::Node
         {
             _Subscriber = this->create_subscription<example_interfaces::msg::String>("Publisher_Node",10,
                                                                                     std::bind(&myNode::callBackSubscriber, this, std::placeholders::_1));
-
             RCLCPP_INFO(this->get_logger(),"Subscriber has been started.");
         }
     

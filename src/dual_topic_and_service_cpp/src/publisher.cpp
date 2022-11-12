@@ -11,8 +11,6 @@ class myMultiNode : public rclcpp::Node
             _publisher = this->create_publisher<example_interfaces::msg::Int64>("pub_node_counter",10);
             RCLCPP_INFO(this->get_logger(),"Counter started...");
             _timer = this->create_wall_timer(std::chrono::seconds(1),std::bind(&myMultiNode::pub_callBack,this));
-
-
         }
     
     private:

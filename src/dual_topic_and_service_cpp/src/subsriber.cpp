@@ -7,16 +7,9 @@ class myMultiNode : public rclcpp::Node
     private:
         int64_t _counter;
         rclcpp::Subscription<example_interfaces::msg::Int64>::SharedPtr _subsciber;
-        void subs_callBack(const example_interfaces::msg::Int64 msg);
-
-
-
-       
-
+        void subs_callBack(const example_interfaces::msg::Int64::SharedPtr msg);
     public:
         myMultiNode();
-
-
 };
 
 int main(int argc, char ** argv)
@@ -27,15 +20,18 @@ int main(int argc, char ** argv)
     rclcpp::shutdown();
 }
 
-myMultiNode::myMultiNode():Node("sub_multi_node"),_counter(0)
+
+myMultiNode::myMultiNode():Node("Subscriber_Node"),_counter(0)
 {
+    _subsciber = this->create_subscription<example_interfaces::msg::Int64>("pub_node_counter",10,
+                                                                        std::bind(&myMultiNode::subs_callBack, this, std::placeholders::_1));
+    RCLCPP_INFO(this->get_logger(),"Subscriber has been started");
 
 }
 
-void myMultiNode::subs_callBack(const example_interfaces::msg::Int64 msg)
+void myMultiNode::subs_callBack(const example_interfaces::msg::Int64::SharedPtr msg)
 {
-    RCLCPP_INFO(this->get_logger(),"Subscriber has been started.");
-    // std::string data = std::to_string(msg->data);
-    // RCLCPP_INFO(this->get_logger(),"data: %s",data);
+    int _counter = msg->data;
+    RCLCPP_INFO(this->get_logger(), "%d",_counter);
 
 }
