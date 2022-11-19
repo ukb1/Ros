@@ -8,6 +8,4 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/FirstMsg.msg"
   )
 
-
-
 ament_package()
