@@ -1,19 +1,22 @@
 cmake_minimum_required(VERSION 3.8)
-project(node_hello_opp_ros)
-
+project(parameters_cpp)
 
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(example_interfaces REQUIRED)
 
-add_executable(hello_opp src/hello_ros_opp.cpp)
-ament_target_dependencies(hello_opp rclcpp)
+
+add_executable(param_node src/param.cpp)
+ament_target_dependencies(param_node rclcpp example_interfaces)
 
 install(
   TARGETS
-  hello_opp
+  param_node
   DESTINATION lib/${PROJECT_NAME}
 )
+
+
 
 ament_package()

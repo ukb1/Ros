@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>node_hello_ros</name>
+  <name>parameters_cpp</name>
   <version>0.0.0</version>
-  <description>Hello ROS</description>
+  <description>TODO: Package description</description>
   <maintainer email="serkanmazlum306@gmail.com">serkan</maintainer>
   <license>TODO: License declaration</license>
 

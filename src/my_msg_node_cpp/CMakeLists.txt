@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(my_msg_node)
+project(my_msg_node_cpp)
 
 
 find_package(ament_cmake REQUIRED)

@@ -36,8 +36,6 @@ private:
         {
            RCLCPP_ERROR(this->get_logger(), "Service call failed.");
         }
-        
-
     }
     void checkBatteryState()
     {
@@ -50,7 +48,6 @@ private:
                 battery_state = "empty";
                 battery_changed = time_now;
                 setLed(3,1);
-
             }
         }
         else
@@ -70,10 +67,7 @@ public:
         _timer = this->create_wall_timer(std::chrono::seconds(1),std::bind(&Battery::checkBatteryState,this));
 
     }
-
-
 };
-
 
 int main(int argc, char** argv)
 {
