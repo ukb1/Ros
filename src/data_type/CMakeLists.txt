@@ -6,7 +6,9 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME} 
   "msg/FirstMsg.msg"
+  "msg/LedState.msg"
   "srv/FirstSrv.srv"
+  "srv/GetLed.srv"
   )
 
 ament_package()
