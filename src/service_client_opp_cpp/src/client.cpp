@@ -7,8 +7,8 @@ class clientNode: public rclcpp::Node
     public:
         clientNode():Node("Client_node_opp")
         {
-            thread1 = std::thread(std::bind(&clientNode::callBackService,this, 12,20)); //Parametre olarak burda direk değer vermek istiyoruz yer tutmak yerine
-            thread2 = std::thread(std::bind(&clientNode::callBackService,this, 5,45)); //Parametre olarak burda direk değer vermek istiyoruz yer tutmak yerine
+            thread1 = std::thread(std::bind(&clientNode::callBackService,this, 12,20)); //Parametre olarak burda direkt değer vermek istiyoruz yer tutmak yerine
+            thread2 = std::thread(std::bind(&clientNode::callBackService,this, 5,45)); //Parametre olarak burda direkt değer vermek istiyoruz yer tutmak yerine
             // Ya da 
             _thread.push_back(std::thread(std::bind(&clientNode::callBackService,this, 6,45)));
             _thread.push_back(std::thread(std::bind(&clientNode::callBackService,this, 9,45)));
